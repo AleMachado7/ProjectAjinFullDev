@@ -1,4 +1,4 @@
 ﻿
 using Xpto.Core;
- 
-App.Init();
+
+ App.Init();

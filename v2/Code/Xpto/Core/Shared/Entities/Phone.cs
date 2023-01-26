@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Reflection.Emit;
+using System.Text;
 
 namespace Xpto.Core.Shared.Entities
 {
@@ -18,7 +19,17 @@ namespace Xpto.Core.Shared.Entities
 
         public override string ToString()
         {
-            return $"({Ddd}) {Number}";
+            var sb = new StringBuilder();
+            if (Ddd > 0) sb.Append($"({Ddd})");
+            if (Number > 0)
+            {;
+                var fullNumber = Number.ToString();
+                var lastDigits = fullNumber.Substring(fullNumber.Length - 4);
+                var index = fullNumber.IndexOf(lastDigits);
+                var firstDigits = (index < 0) ? "" : fullNumber.Remove(index, lastDigits.Length);
+                sb.Append($" {firstDigits}-{lastDigits}");
+            }
+            return sb.ToString();
         }
     }
 }

@@ -1,12 +1,10 @@
-﻿// ReSharper disable All
-
-using System.Globalization;
+﻿using System.Globalization;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.Json;
 using Xpto.Core.Customers;
-
-#pragma warning disable CS8601
+using Xpto.Core.Shared.Entities;
+using Xpto.Core.Shared.Functions;
 
 namespace Xpto.Core
 {
@@ -41,7 +39,7 @@ namespace Xpto.Core
                 Console.WriteLine($"{Actions[ActionKey]}");
 
                 var customerService = new CustomerService();
- 
+
                 if (ActionKey == 1)
                     customerService.List();
                 else if (ActionKey == 2)
@@ -75,7 +73,7 @@ namespace Xpto.Core
 
             return action;
         }
- 
+
         public static void PrintHeader()
         {
             Console.WriteLine(("").PadRight(100, '+'));
